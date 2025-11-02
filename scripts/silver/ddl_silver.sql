@@ -1,6 +1,7 @@
 -- ===========================================================
--- PROJECT       : Data Warehouse Development
+-- PROJECT       : Data Warehouse
 -- LAYER         : SILVER
+-- SCRIPT        : ddl_silver.sql
 -- AUTHOR        : Azizah
 -- DATE          : November 2, 2025
 -- SOURCE PROJECT: DataWithBaraa
