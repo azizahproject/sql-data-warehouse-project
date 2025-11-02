@@ -1,8 +1,9 @@
 -- ===========================================================
--- PROJECT : Data Warehouse Development
--- LAYER   : SILVER
--- AUTHOR  : Azizah
--- DATE    : November 2, 2025
+-- PROJECT       : Data Warehouse Development
+-- LAYER         : SILVER
+-- AUTHOR        : Azizah
+-- DATE          : November 2, 2025
+-- SOURCE PROJECT: DataWithBaraa
 --
 -- DESCRIPTION:
 --   This script defines all cleaned and standardized tables 
