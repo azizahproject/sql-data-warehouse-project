@@ -1,5 +1,5 @@
 -- ===========================================================
--- PROJECT       : Data Warehouse Development
+-- PROJECT       : Data Warehouse
 -- LAYER         : BRONZE
 -- SCRIPT        : proc_load_bronze.sql
 -- AUTHOR        : Azizah
