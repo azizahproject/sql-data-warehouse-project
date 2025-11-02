@@ -1,5 +1,5 @@
 -- ===========================================================
--- PROJECT       : Data Warehouse Development
+-- PROJECT       : Data Warehouse
 -- LAYER         : BRONZE
 -- SCRIPT        : ddl_bronze.sql
 -- AUTHOR        : Azizah
