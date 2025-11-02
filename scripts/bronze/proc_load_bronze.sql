@@ -1,26 +1,33 @@
--- ================================================
--- Author: Azizah
--- Source Project: DataWithBaraa
--- Purpose: Load raw data into the Bronze Layer
--- Database: DataWarehouse
--- Schema: bronze
+-- ===========================================================
+-- PROJECT       : Data Warehouse Development
+-- LAYER         : BRONZE
+-- SCRIPT        : proc_load_bronze.sql
+-- AUTHOR        : Azizah
+-- DATE          : October 31, 2025
+-- SOURCE PROJECT: DataWithBaraa
 --
--- Description:
---   - This procedure loads CSV files from local folders
---     into the bronze schema tables.
---   - Each table is truncated before loading (data replaced).
+-- DESCRIPTION:
+--   This stored procedure performs bulk data loading into
+--   all BRONZE layer tables from raw CSV files.
+--   It serves as the ingestion layer for the data warehouse,
+--   ensuring all CRM and ERP data sources are centralized
+--   and ready for transformation into the SILVER layer.
 --
--- ⚠️ WARNING:
---   Running this procedure will TRUNCATE all Bronze tables.
---   Any existing data will be permanently deleted and replaced
---   with the contents of the CSV files.
---
--- Usage:
---   EXEC bronze.load_bronze
--- ================================================
+-- CAUTION:
+--   ⚠️ This process TRUNCATES all existing BRONZE tables before loading.
+--   Ensure data sources are validated and accessible before execution.
+-- ===========================================================
 
--- Execute the procedure manually using:
-EXEC bronze.load_bronze  /* execute only this line */
+-- ===========================================================
+-- EXECUTION COMMAND (Run this only once to trigger the process)
+-- ===========================================================
+EXEC bronze.load_bronze;
+GO
+
+-- ===========================================================
+-- SECTION: PROCEDURE DEFINITION
+-- PURPOSE: Define the main procedure to load all BRONZE layer data.
+-- ===========================================================
 
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 BEGIN
@@ -38,7 +45,8 @@ BEGIN
         PRINT '=================================================================';
 
         -- ===========================================================
-        -- CRM SOURCE TABLES
+        -- SECTION: CRM SOURCE TABLES
+        -- PURPOSE: Load raw data from CRM CSV files.
         -- ===========================================================
         PRINT '-----------------------------------------------------------------';
         PRINT 'Loading CRM Tables';
@@ -105,8 +113,9 @@ BEGIN
 
 
         -- ===========================================================
-        -- ERP SOURCE TABLES
-        -- ===========================================================
+        -- SECTION: ERP SOURCE TABLES
+        -- PURPOSE: Load raw data from ERP CSV files.
+        -- ==========================================================
         PRINT '-----------------------------------------------------------------';
         PRINT 'Loading ERP Tables';
         PRINT '-----------------------------------------------------------------';
@@ -172,7 +181,8 @@ BEGIN
 
 
         -- ===========================================================
-        -- FINISHING
+        -- SECTION: COMPLETION LOG
+        -- PURPOSE: Log successful batch completion details.
         -- ===========================================================
         SET @batch_end_time = GETDATE();
         PRINT '===========================================================';
@@ -182,6 +192,10 @@ BEGIN
 
     END TRY
 
+        -- ===========================================================
+        -- SECTION: ERROR HANDLING
+        -- PURPOSE: Capture and display detailed error information.
+        -- ===========================================================
     BEGIN CATCH
         PRINT '===========================================================';
         PRINT '❌ ERROR OCCURRED DURING BRONZE LAYER LOAD';
@@ -192,3 +206,8 @@ BEGIN
     END CATCH
 END;
 GO
+
+-- ===========================================================
+-- ✅ END OF SCRIPT
+-- The procedure [bronze.load_bronze] has been created successfully.
+-- ===========================================================
