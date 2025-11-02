@@ -1,6 +1,7 @@
 -- ===========================================================
 -- PROJECT       : Data Warehouse
 -- LAYER         : GOLD
+-- SCRIPT        : ddl_gold.sql
 -- AUTHOR        : Azizah
 -- DATE          : November 2, 2025
 -- SOURCE PROJECT: DataWithBaraa
