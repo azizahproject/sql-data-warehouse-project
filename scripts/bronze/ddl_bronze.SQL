@@ -1,5 +1,6 @@
 -- ================================================
 -- Author: Azizah
+-- Source Project: DataWithBaraa
 -- Purpose: Create raw data tables in the 'bronze' schema
 -- Database: DataWarehouse
 -- Schema: bronze
