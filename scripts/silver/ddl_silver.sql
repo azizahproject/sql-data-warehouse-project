@@ -1,17 +1,20 @@
-/*
-====================================================================
-⚠️  WARNING:
-This script will DROP and RECREATE all tables in the SILVER layer.
-Running this script will PERMANENTLY DELETE any existing data 
-stored in these tables.
-
-Use this script only when initializing or resetting your 
-Silver Layer schema structure.
-
-Author: Azizah
-Layer: SILVER (Cleaned / Standardized data)
-====================================================================
-*/
+-- ===========================================================
+-- PROJECT : Data Warehouse Development
+-- LAYER   : SILVER
+-- AUTHOR  : Azizah
+-- DATE    : November 2, 2025
+--
+-- DESCRIPTION:
+--   This script defines all cleaned and standardized tables 
+--   for the SILVER layer. Data in this layer is transformed 
+--   from BRONZE sources to ensure consistency, structure, 
+--   and readiness for analytical processing.
+--
+-- CAUTION:
+--   ⚠️ Running this script will DROP and RECREATE all SILVER tables.
+--   This action will PERMANENTLY DELETE any existing data 
+--   stored in these tables.
+-- ===========================================================
 
 
 -- ===========================================================
@@ -19,10 +22,11 @@ Layer: SILVER (Cleaned / Standardized data)
 -- ===========================================================
 
 -- ===========================================================
--- Table: silver.crm_cust_info
--- Purpose: Stores cleaned customer information from CRM system.
--- Notes: Contains standardized personal and demographic data.
+-- SECTION: Create Table - silver.crm_cust_info
+-- PURPOSE: Store cleaned customer information from CRM system.
+-- NOTES  : Includes standardized demographic data and auto timestamp.
 -- ===========================================================
+
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE silver.crm_cust_info;
 GO
@@ -41,9 +45,9 @@ GO
 
 
 -- ===========================================================
--- Table: silver.crm_prd_info
--- Purpose: Stores cleaned product information from CRM system.
--- Notes: Used to link product-level details in the sales dataset.
+-- SECTION: Create Table - silver.crm_prd_info
+-- PURPOSE: Store cleaned product data from CRM system.
+-- NOTES  : Used for product-level analysis and sales linkage.
 -- ===========================================================
 IF OBJECT_ID('silver.crm_prd_info', 'U') IS NOT NULL
     DROP TABLE silver.crm_prd_info;
@@ -64,9 +68,9 @@ GO
 
 
 -- ===========================================================
--- Table: silver.crm_sales_details
--- Purpose: Stores transactional sales data from CRM system.
--- Notes: Links to crm_cust_info (customer) and crm_prd_info (product).
+-- SECTION: Create Table - silver.crm_sales_details
+-- PURPOSE: Store transactional sales data from CRM.
+-- NOTES  : Links to customers and products for building fact tables.
 -- ===========================================================
 IF OBJECT_ID('silver.crm_sales_details', 'U') IS NOT NULL
     DROP TABLE silver.crm_sales_details;
@@ -93,9 +97,9 @@ GO
 -- ===========================================================
 
 -- ===========================================================
--- Table: silver.erp_loc_a101
--- Purpose: Stores standardized location or country data from ERP.
--- Notes: Used for geographic joins or regional analysis.
+-- SECTION: Create Table - silver.erp_loc_a101
+-- PURPOSE: Store standardized location/country data from ERP.
+-- NOTES  : Supports geographic segmentation and joins.
 -- ===========================================================
 IF OBJECT_ID('silver.erp_loc_a101', 'U') IS NOT NULL
     DROP TABLE silver.erp_loc_a101;
@@ -110,9 +114,9 @@ GO
 
 
 -- ===========================================================
--- Table: silver.erp_cust_az12
--- Purpose: Stores demographic information from ERP customers.
--- Notes: Can be joined with CRM data to enrich customer profiles.
+-- SECTION: Create Table - silver.erp_cust_az12
+-- PURPOSE: Store demographic information for ERP customers.
+-- NOTES  : Used to enrich CRM profiles with birthdate and gender data.
 -- ===========================================================
 IF OBJECT_ID('silver.erp_cust_az12', 'U') IS NOT NULL
     DROP TABLE silver.erp_cust_az12;
@@ -128,9 +132,9 @@ GO
 
 
 -- ===========================================================
--- Table: silver.erp_px_cat_g1v2
--- Purpose: Maps products to categories and subcategories from ERP.
--- Notes: Supports product classification and hierarchy in analytics.
+-- SECTION: Create Table - silver.erp_px_cat_g1v2
+-- PURPOSE: Store product category and subcategory mappings.
+-- NOTES  : Supports classification and product hierarchy analytics.
 -- ===========================================================
 IF OBJECT_ID('silver.erp_px_cat_g1v2', 'U') IS NOT NULL
     DROP TABLE silver.erp_px_cat_g1v2;
