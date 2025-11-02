@@ -1,23 +1,34 @@
--- ================================================
--- Author: Azizah
--- Source Project: DataWithBaraa
--- Purpose: Create raw data tables in the 'bronze' schema
--- Database: DataWarehouse
--- Schema: bronze
--- Description:
---   This script drops and recreates raw tables sourced
---   from CRM and ERP systems.
+-- ===========================================================
+-- PROJECT       : Data Warehouse Development
+-- LAYER         : BRONZE
+-- SCRIPT        : ddl_bronze.sql
+-- AUTHOR        : Azizah
+-- DATE          : October 31, 2025
+-- SOURCE PROJECT: DataWith Baraa
 --
--- ⚠️ WARNING:
---   Running this script will DELETE existing tables (if they exist)
---   and recreate them from scratch.
---   All existing data in these tables will be lost.
--- ================================================
+-- DESCRIPTION:
+--   This script defines all BRONZE layer source tables
+--   used for storing raw data ingested from CRM and ERP systems.
+--   The BRONZE layer serves as the foundation of the ETL pipeline,
+--   maintaining data in its original, untransformed format.
+--
+-- CAUTION:
+--   ⚠️ Running this script will DROP and RECREATE all BRONZE tables.
+--   Any existing data in these tables will be permanently deleted.
+-- ===========================================================
+
 
 -- ===========================================================
--- CRM SOURCE TABLES
+-- SECTION: CRM SOURCE TABLES
+-- PURPOSE: Store raw customer, product, and sales data
+--          ingested from the CRM system.
 -- ===========================================================
 
+-- ===========================================================
+-- SECTION: CRM SOURCE TABLES
+-- PURPOSE: Store raw customer, product, and sales data
+--          ingested from the CRM system.
+-- ===========================================================
 -- Drop and recreate customer information table
 IF OBJECT_ID('bronze.crm_cust_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_cust_info;
@@ -34,6 +45,10 @@ CREATE TABLE bronze.crm_cust_info (
 );
 GO
 
+---------------------------------------------------------------
+-- TABLE: bronze.crm_prd_info
+-- PURPOSE: Store raw product information from CRM system.
+---------------------------------------------------------------
 -- Drop and recreate product information table
 IF OBJECT_ID('bronze.crm_prd_info', 'U') IS NOT NULL
     DROP TABLE bronze.crm_prd_info;
@@ -50,6 +65,10 @@ CREATE TABLE bronze.crm_prd_info (
 );
 GO
 
+---------------------------------------------------------------
+-- TABLE: bronze.crm_sales_details
+-- PURPOSE: Store transactional sales data from CRM system.
+---------------------------------------------------------------
 -- Drop and recreate sales details table
 IF OBJECT_ID('bronze.crm_sales_details', 'U') IS NOT NULL
     DROP TABLE bronze.crm_sales_details;
@@ -70,9 +89,16 @@ GO
 
 
 -- ===========================================================
--- ERP SOURCE TABLES
+-- SECTION: ERP SOURCE TABLES
+-- PURPOSE: Store raw master and reference data 
+--          ingested from ERP systems.
 -- ===========================================================
 
+
+---------------------------------------------------------------
+-- TABLE: bronze.erp_loc_a101
+-- PURPOSE: Store location and country mapping from ERP system.
+---------------------------------------------------------------
 -- Drop and recreate location table
 IF OBJECT_ID('bronze.erp_loc_a101', 'U') IS NOT NULL
     DROP TABLE bronze.erp_loc_a101;
@@ -84,6 +110,11 @@ CREATE TABLE bronze.erp_loc_a101 (
 );
 GO
 
+
+---------------------------------------------------------------
+-- TABLE: bronze.erp_cust_az12
+-- PURPOSE: Store customer demographic information from ERP system.
+---------------------------------------------------------------
 -- Drop and recreate customer demographics table
 IF OBJECT_ID('bronze.erp_cust_az12', 'U') IS NOT NULL
     DROP TABLE bronze.erp_cust_az12;
@@ -96,6 +127,11 @@ CREATE TABLE bronze.erp_cust_az12 (
 );
 GO
 
+
+---------------------------------------------------------------
+-- TABLE: bronze.erp_px_cat_g1v2
+-- PURPOSE: Store product category and subcategory mapping.
+---------------------------------------------------------------
 -- Drop and recreate product category mapping table
 IF OBJECT_ID('bronze.erp_px_cat_g1v2', 'U') IS NOT NULL
     DROP TABLE bronze.erp_px_cat_g1v2;
