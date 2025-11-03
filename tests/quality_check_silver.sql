@@ -1,7 +1,29 @@
 -- ===========================================================
--- Data Quality Check: silver.crm_cust_info
+-- PROJECT       : Data Warehouse Development
+-- LAYER         : SILVER
+-- SCRIPT        : quality_check_silver.sql
+-- AUTHOR        : Azizah
+-- SOURCE PROJECT: DataWithBaraa
+-- DATE          : November 1, 2025
+--
+-- DESCRIPTION:
+--   This script performs data quality checks across all SILVER layer tables.
+--   It validates data integrity, consistency, and cleanliness before data
+--   promotion to the GOLD layer.
+--
+-- OBJECTIVES:
+--   • Detect duplicate, null, or invalid key values.
+--   • Ensure data standardization and referential consistency.
+--   • Identify anomalies in numerical, date, or categorical fields.
+--
+-- USAGE NOTES:
+--   • Run after SILVER layer refresh is complete.
+--   • Investigate all “unexpected” results for potential data issues.
 -- ===========================================================
 
+-- ===========================================================
+-- Data Quality Check: silver.crm_cust_info
+-- ===========================================================
 SELECT
 *
 FROM silver.crm_cust_info
