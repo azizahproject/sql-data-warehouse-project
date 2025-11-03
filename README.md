@@ -11,6 +11,7 @@ It includes real-world practices such as data cleansing, standardization, integr
 
 ## 🧱 Architecture Layers
 <img width="1260" height="820" alt="Data Architecture drawio" src="https://github.com/user-attachments/assets/58524e1d-1ad6-4ed7-be4e-0ba82ac4c476" />
+   
    1. Bronze Layer:  Raw data ingestion layer | Stores unprocessed, original data from CRM and ERP source systems. |
    
    2. Silver Layer: Cleansed & conformed layer | Standardizes, validates, and integrates data for analytical use. |
