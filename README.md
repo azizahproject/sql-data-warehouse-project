@@ -1,4 +1,4 @@
-# Data Warehouse & Analytics Project
+# Data Warehouse Project
 
 ## 📁 Overview
 This project is developed as part of the **Data Warehouse Course by [DataWithBaraa]([https://www.youtube.com/@DataWithBaraa](https://youtu.be/9GVqKuTVANE?si=AuaewLte6OVauUrR))** on YouTube.  
