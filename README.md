@@ -52,7 +52,7 @@ Specifications
 ---
 
 ## 🙌 Acknowledgment
-This project is inspired by the **Data Warehouse series by [DataWithBaraa]([https://www.youtube.com/@DataWithBaraa](https://youtu.be/9GVqKuTVANE?si=AuaewLte6OVauUrR))** —  
+This project is inspired by the **Data Warehouse series by [DataWithBaraa](https://youtu.be/9GVqKuTVANE?si=AuaewLte6OVauUrR)** —  
 a comprehensive learning resource that guides professionals through practical steps in building a modern, layered data warehouse.
 
 ---
